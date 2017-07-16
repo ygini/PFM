@@ -9,16 +9,65 @@
 #import "PFMOutlineViewController.h"
 
 #import "PFMPreferenceManifest.h"
+#import "PFMManifestProvider.h"
 
 @implementation PFMOutlineViewController
 
-#pragma mark - Child management 
+#pragma mark - NSViewController
 
--(BOOL)outlineView:(NSOutlineView *)outlineView isItemExpandable:(PFMProperty*)item {
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+}
+
+-(void)viewDidAppear {
+    [super viewDidAppear];
+    
+    if (!self.preferenceManifest) {
+        [self triggerActionPannelToSelectPreferenceManifest];
+    }
+}
+
+
+- (void)setRepresentedObject:(id)representedObject {
+    [super setRepresentedObject:representedObject];
+    
+}
+
+- (void)manifestSelectionIsDone {
+    [self.outlineView reloadItem:nil];
+}
+
+- (void)manifestSelectionCancelled {
+    [self.view.window close];
+}
+
+- (void)triggerActionPannelToSelectPreferenceManifest {
+    
+}
+
+#pragma mark - Actions
+
+- (IBAction)addPropertyToTheSameLevel:(id)sender {
+    
+}
+
+- (IBAction)addNestedProperty:(id)sender {
+    
+}
+
+- (IBAction)removeSelectedProperties:(id)sender {
+    
+}
+
+#pragma mark - NSOutlineView
+#pragma mark Child management
+
+-(BOOL)outlineView:(NSOutlineView *)outlineView isItemExpandable:(PFMPreferenceProperty*)item {
     return item.pfm_subkeys != nil;
 }
 
--(NSInteger)outlineView:(NSOutlineView *)outlineView numberOfChildrenOfItem:(PFMProperty*)item {
+-(NSInteger)outlineView:(NSOutlineView *)outlineView numberOfChildrenOfItem:(PFMPreferenceProperty*)item {
     if (!item) {
         return [self.preferenceManifest.pfm_subkeys count];
     } else {
@@ -26,7 +75,7 @@
     }
 }
 
-- (id)outlineView:(NSOutlineView *)outlineView child:(NSInteger)index ofItem:(PFMProperty*)item {
+- (id)outlineView:(NSOutlineView *)outlineView child:(NSInteger)index ofItem:(PFMPreferenceProperty*)item {
     if (!item) {
         return [self.preferenceManifest.pfm_subkeys objectAtIndex:index];
     } else {
@@ -34,9 +83,9 @@
     }
 }
 
-#pragma mark - Content management
+#pragma mark Content management
 
-- (id)outlineView:(NSOutlineView *)outlineView objectValueForTableColumn:(NSTableColumn *)tableColumn byItem:(PFMProperty*)item {
+- (id)outlineView:(NSOutlineView *)outlineView objectValueForTableColumn:(NSTableColumn *)tableColumn byItem:(PFMPreferenceProperty*)item {
     return [item valueForKey:tableColumn.identifier];
 }
 

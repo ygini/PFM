@@ -18,5 +18,6 @@ FOUNDATION_EXPORT const unsigned char PFMVersionString[];
 
 #import <PFM/PFMConstants.h>
 #import <PFM/PFMPreferenceManifest.h>
-#import <PFM/PFMProperty.h>
+#import <PFM/PFMPreferenceProperty.h>
 #import <PFM/PFMOutlineViewController.h>
+#import <PFM/PFMManifestProvider.h>

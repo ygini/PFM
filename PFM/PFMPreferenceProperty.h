@@ -8,31 +8,31 @@
 
 #import <Foundation/Foundation.h>
 
-typedef NS_ENUM(NSUInteger, PFMPropertyTarget) {
-    PFMPropertyTargetUser,
-    PFMPropertyTargetManagedUser,
-    PFMPropertyTargetManagedSystem,
+typedef NS_ENUM(NSUInteger, PFMPreferencePropertyTarget) {
+    PFMPreferencePropertyTargetUser,
+    PFMPreferencePropertyTargetManagedUser,
+    PFMPreferencePropertyTargetManagedSystem,
 };
 
-typedef NS_ENUM(NSUInteger, PFMPropertyType) {
-    PFMPropertyTypeUnspecified,
-    PFMPropertyTypeArray,
-    PFMPropertyTypeBoolean,
-    PFMPropertyTypeDate,
-    PFMPropertyTypeData,
-    PFMPropertyTypeDictionary,
-    PFMPropertyTypeInteger,
-    PFMPropertyTypeReal,
-    PFMPropertyTypeString,
-    PFMPropertyTypeURL,
+typedef NS_ENUM(NSUInteger, PFMPreferencePropertyType) {
+    PFMPreferencePropertyTypeUnspecified,
+    PFMPreferencePropertyTypeArray,
+    PFMPreferencePropertyTypeBoolean,
+    PFMPreferencePropertyTypeDate,
+    PFMPreferencePropertyTypeData,
+    PFMPreferencePropertyTypeDictionary,
+    PFMPreferencePropertyTypeInteger,
+    PFMPreferencePropertyTypeReal,
+    PFMPreferencePropertyTypeString,
+    PFMPreferencePropertyTypeURL,
 };
 
-@interface PFMProperty : NSObject
+@interface PFMPreferenceProperty : NSObject
 
 // Mandatory keys
 @property NSString *pfm_name;
 @property NSString *pfm_title;
-@property PFMPropertyType pfm_type;
+@property PFMPreferencePropertyType pfm_type;
 @property NSString *pfm_default;
 @property NSString *pfm_description;
 @property NSArray *pfm_targets;

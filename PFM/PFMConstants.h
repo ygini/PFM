@@ -9,6 +9,11 @@
 #ifndef PFMConstants_h
 #define PFMConstants_h
 
+#define kPFMManifestsSources  @"manifestsSources"
+#define kPFMManifestsSourceName  @"manifestsSourceName"
+#define kPFMManifestsSourcePath  @"manifestsSourcePath"
+
+
 #define kPFMFormatVersion @"pfm_format_version"
 #define kPFMVersion @"pfm_version"
 #define kPFMDomain @"pfm_domain"

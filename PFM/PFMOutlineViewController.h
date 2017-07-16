@@ -10,12 +10,19 @@
 
 @class PFMPreferenceManifest;
 
-@interface PFMOutlineViewController : NSObject <NSOutlineViewDataSource>
+@interface PFMOutlineViewController : NSViewController <NSOutlineViewDataSource, NSOutlineViewDelegate>
 
 @property PFMPreferenceManifest *preferenceManifest;
-
-@property NSOutlineView *outlineView;
-
+@property IBOutlet NSOutlineView *outlineView;
 @property NSMutableDictionary *representedSettings;
+
+- (void)manifestSelectionIsDone;
+- (void)manifestSelectionCancelled;
+
+- (void)triggerActionPannelToSelectPreferenceManifest;
+
+- (IBAction)addPropertyToTheSameLevel:(id)sender;
+- (IBAction)addNestedProperty:(id)sender;
+- (IBAction)removeSelectedProperties:(id)sender;
 
 @end

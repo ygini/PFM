@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "PFMProperty.h"
+#import "PFMPreferenceProperty.h"
 
 @interface PFMPreferenceManifest : NSObject
 

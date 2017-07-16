@@ -6,10 +6,10 @@
 //  Copyright © 2017 Yoann Gini. All rights reserved.
 //
 
-#import "PFMProperty.h"
+#import "PFMPreferenceProperty.h"
 #import "PFMConstants.h"
 
-@implementation PFMProperty
+@implementation PFMPreferenceProperty
 
 - (instancetype)initWithInfos:(NSDictionary*)initialInformations
 {
@@ -18,28 +18,28 @@
         NSString *typeString = [initialInformations objectForKey:kPFMType];
         
         if ([kPFMTypeArray isEqualToString:typeString]) {
-            self.pfm_type = PFMPropertyTypeArray;
+            self.pfm_type = PFMPreferencePropertyTypeArray;
         } else if ([kPFMTypeBoolean isEqualToString:typeString]) {
-            self.pfm_type = PFMPropertyTypeBoolean;
+            self.pfm_type = PFMPreferencePropertyTypeBoolean;
         } else if ([kPFMTypeDate isEqualToString:typeString]) {
-            self.pfm_type = PFMPropertyTypeDate;
+            self.pfm_type = PFMPreferencePropertyTypeDate;
         } else if ([kPFMTypeData isEqualToString:typeString]) {
-            self.pfm_type = PFMPropertyTypeData;
+            self.pfm_type = PFMPreferencePropertyTypeData;
         } else if ([kPFMTypeDictionary isEqualToString:typeString]) {
-            self.pfm_type = PFMPropertyTypeDictionary;
+            self.pfm_type = PFMPreferencePropertyTypeDictionary;
         } else if ([kPFMTypeInteger isEqualToString:typeString]) {
-            self.pfm_type = PFMPropertyTypeInteger;
+            self.pfm_type = PFMPreferencePropertyTypeInteger;
         } else if ([kPFMTypeReal isEqualToString:typeString]) {
-            self.pfm_type = PFMPropertyTypeReal;
+            self.pfm_type = PFMPreferencePropertyTypeReal;
         } else if ([kPFMTypeString isEqualToString:typeString]) {
-            self.pfm_type = PFMPropertyTypeString;
+            self.pfm_type = PFMPreferencePropertyTypeString;
         } else if ([kPFMTypeURL isEqualToString:typeString]) {
-            self.pfm_type = PFMPropertyTypeURL;
+            self.pfm_type = PFMPreferencePropertyTypeURL;
         } else {
-            self.pfm_type = PFMPropertyTypeUnspecified;
+            self.pfm_type = PFMPreferencePropertyTypeUnspecified;
         }
         
-        if (self.pfm_type == PFMPropertyTypeUnspecified) {
+        if (self.pfm_type == PFMPreferencePropertyTypeUnspecified) {
             return nil;
         }
         
@@ -52,11 +52,11 @@
         NSMutableArray *targets = [NSMutableArray new];
         for (NSString *targetString in [initialInformations objectForKey:kPFMTargets]) {
             if ([kPFMTargetUser isEqualToString:targetString]) {
-                [targets addObject:[NSNumber numberWithUnsignedInteger:PFMPropertyTargetUser]];
+                [targets addObject:[NSNumber numberWithUnsignedInteger:PFMPreferencePropertyTargetUser]];
             } else if ([kPFMTargetManagedUser isEqualToString:targetString]) {
-                [targets addObject:[NSNumber numberWithUnsignedInteger:PFMPropertyTargetManagedUser]];
+                [targets addObject:[NSNumber numberWithUnsignedInteger:PFMPreferencePropertyTargetManagedUser]];
             } else if ([kPFMTargetManagedSystem isEqualToString:targetString]) {
-                [targets addObject:[NSNumber numberWithUnsignedInteger:PFMPropertyTargetManagedSystem]];
+                [targets addObject:[NSNumber numberWithUnsignedInteger:PFMPreferencePropertyTargetManagedSystem]];
             } else {
                 // TODO: Manage unkown target error
             }
@@ -67,7 +67,7 @@
             NSMutableArray *nestedProperties = [NSMutableArray new];
             
             for (NSDictionary *nestedInformations in [initialInformations objectForKey:kPFMSubkeys]) {
-                PFMProperty *nestedProperty = [[PFMProperty alloc] initWithInfos:nestedInformations];
+                PFMPreferenceProperty *nestedProperty = [[PFMPreferenceProperty alloc] initWithInfos:nestedInformations];
                 if (nestedProperty) {
                     [nestedProperties addObject:nestedProperty];
                 } else {
@@ -107,33 +107,33 @@
     return [self stringForDescriptionOfLevel:0];
 }
 
-- (NSString*)descriptionForType:(PFMPropertyType)type {
+- (NSString*)descriptionForType:(PFMPreferencePropertyType)type {
     switch (type) {
-        case PFMPropertyTypeArray:
+        case PFMPreferencePropertyTypeArray:
             return kPFMTypeArray;
             break;
-        case PFMPropertyTypeBoolean:
+        case PFMPreferencePropertyTypeBoolean:
             return kPFMTypeBoolean;
             break;
-        case PFMPropertyTypeDate:
+        case PFMPreferencePropertyTypeDate:
             return kPFMTypeDate;
             break;
-        case PFMPropertyTypeData:
+        case PFMPreferencePropertyTypeData:
             return kPFMTypeData;
             break;
-        case PFMPropertyTypeDictionary:
+        case PFMPreferencePropertyTypeDictionary:
             return kPFMTypeDictionary;
             break;
-        case PFMPropertyTypeInteger:
+        case PFMPreferencePropertyTypeInteger:
             return kPFMTypeInteger;
             break;
-        case PFMPropertyTypeReal:
+        case PFMPreferencePropertyTypeReal:
             return kPFMTypeReal;
             break;
-        case PFMPropertyTypeString:
+        case PFMPreferencePropertyTypeString:
             return kPFMTypeString;
             break;
-        case PFMPropertyTypeURL:
+        case PFMPreferencePropertyTypeURL:
             return kPFMTypeURL;
             break;
             
@@ -143,15 +143,15 @@
     }
 }
 
-- (NSString*)descriptionForTarget:(PFMPropertyTarget)type {
+- (NSString*)descriptionForTarget:(PFMPreferencePropertyTarget)type {
     switch (type) {
-        case PFMPropertyTargetUser:
+        case PFMPreferencePropertyTargetUser:
             return kPFMTargetUser;
             break;
-        case PFMPropertyTargetManagedUser:
+        case PFMPreferencePropertyTargetManagedUser:
             return kPFMTargetManagedUser;
             break;
-        case PFMPropertyTargetManagedSystem:
+        case PFMPreferencePropertyTargetManagedSystem:
             return kPFMTargetManagedSystem;
             break;
         default:
@@ -168,7 +168,7 @@
     
     NSMutableString *description = [NSMutableString new];
     
-    [description appendFormat:@"%@<PFMProperty key:%@, type:%@, title:\"%@\", description:\"%@\"", spaces, self.pfm_name, [self descriptionForType:self.pfm_type], self.pfm_title, self.pfm_description];
+    [description appendFormat:@"%@<%@ key:%@, type:%@, title:\"%@\", description:\"%@\"", spaces, self.className, self.pfm_name, [self descriptionForType:self.pfm_type], self.pfm_title, self.pfm_description];
     
     if ([self.pfm_range_list count] > 0) {
         [description appendFormat:@"\n%@+ range_list:\n", spaces];
@@ -195,7 +195,7 @@
     if (self.pfm_subkeys) {
         [description appendFormat:@"\n%@+ subkeys:\n", spaces];
         
-        for (PFMProperty *property  in self.pfm_subkeys) {
+        for (PFMPreferenceProperty *property  in self.pfm_subkeys) {
             [description appendString:[property stringForDescriptionOfLevel:descriptionLevel+1]];
             [description appendString:@"\n"];
         }

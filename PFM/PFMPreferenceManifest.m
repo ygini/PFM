@@ -8,7 +8,7 @@
 
 #import "PFMPreferenceManifest.h"
 #import "PFMConstants.h"
-#import "PFMProperty.h"
+#import "PFMPreferenceProperty.h"
 
 @implementation PFMPreferenceManifest
 
@@ -39,7 +39,7 @@
         NSMutableArray *nestedProperties = [NSMutableArray new];
         
         for (NSDictionary *nestedInformations in [preferenceManifest objectForKey:kPFMSubkeys]) {
-            PFMProperty *nestedProperty = [[PFMProperty alloc] initWithInfos:nestedInformations];
+            PFMPreferenceProperty *nestedProperty = [[PFMPreferenceProperty alloc] initWithInfos:nestedInformations];
             if (nestedProperty) {
                 [nestedProperties addObject:nestedProperty];
             } else {
@@ -55,8 +55,8 @@
 -(NSString *)description {
     NSMutableString *description = [NSMutableString new];
     
-    [description appendFormat:@"<PFMDomain domain:%@, version:%@, title:\"%@\", description:\"%@\", subkeys:\n", self.pfm_domain, self.pfm_version, self.pfm_title, self.pfm_description];
-    for (PFMProperty *property  in self.pfm_subkeys) {
+    [description appendFormat:@"<%@ domain:%@, version:%@, title:\"%@\", description:\"%@\", subkeys:\n", self.className, self.pfm_domain, self.pfm_version, self.pfm_title, self.pfm_description];
+    for (PFMPreferenceProperty *property  in self.pfm_subkeys) {
         [description appendString:[property stringForDescriptionOfLevel:1]];
         [description appendString:@"\n"];
     }
