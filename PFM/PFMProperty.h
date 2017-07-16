@@ -48,6 +48,10 @@ typedef NS_ENUM(NSUInteger, PFMPropertyType) {
 @property NSInteger pfm_repetition_max;
 @property NSInteger pfm_repetition_min;
 
+// Read and write values for preference creation
+
+@property id user_value;
+
 // Object lifecycle
 
 - (instancetype)initWithInfos:(NSDictionary*)initialInformations;

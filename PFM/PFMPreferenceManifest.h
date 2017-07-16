@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "PFMProperty.h"
 
-@interface PFMDomain : NSObject
+@interface PFMPreferenceManifest : NSObject
 
 @property NSString *pfm_description;
 @property NSString *pfm_title;

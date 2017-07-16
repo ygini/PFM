@@ -6,11 +6,11 @@
 //  Copyright © 2017 Yoann Gini. All rights reserved.
 //
 
-#import "PFMDomain.h"
+#import "PFMPreferenceManifest.h"
 #import "PFMConstants.h"
 #import "PFMProperty.h"
 
-@implementation PFMDomain
+@implementation PFMPreferenceManifest
 
 - (instancetype)initWithContentOfFile:(NSString*)filePath {
     return [self initWithPreferencesManifest:[NSDictionary dictionaryWithContentsOfFile:filePath]];
