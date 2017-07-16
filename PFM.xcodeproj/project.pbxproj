@@ -8,12 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		F87CC59B1F1B93AB00604652 /* PFM.h in Headers */ = {isa = PBXBuildFile; fileRef = F87CC5991F1B93AB00604652 /* PFM.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F87CC5A31F1B941900604652 /* PFMDomain.h in Headers */ = {isa = PBXBuildFile; fileRef = F87CC5A11F1B941900604652 /* PFMDomain.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F87CC5A41F1B941900604652 /* PFMDomain.m in Sources */ = {isa = PBXBuildFile; fileRef = F87CC5A21F1B941900604652 /* PFMDomain.m */; };
+		F87CC5A71F1B942B00604652 /* PFMProperty.h in Headers */ = {isa = PBXBuildFile; fileRef = F87CC5A51F1B942B00604652 /* PFMProperty.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F87CC5A81F1B942B00604652 /* PFMProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = F87CC5A61F1B942B00604652 /* PFMProperty.m */; };
+		F89930261F1BA78300323299 /* PFMConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = F84CBC0F1F1B991200B27D6A /* PFMConstants.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F84CBC0F1F1B991200B27D6A /* PFMConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PFMConstants.h; sourceTree = "<group>"; };
 		F87CC5961F1B93AB00604652 /* PFM.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PFM.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F87CC5991F1B93AB00604652 /* PFM.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PFM.h; sourceTree = "<group>"; };
 		F87CC59A1F1B93AB00604652 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F87CC5A11F1B941900604652 /* PFMDomain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFMDomain.h; sourceTree = "<group>"; };
+		F87CC5A21F1B941900604652 /* PFMDomain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFMDomain.m; sourceTree = "<group>"; };
+		F87CC5A51F1B942B00604652 /* PFMProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFMProperty.h; sourceTree = "<group>"; };
+		F87CC5A61F1B942B00604652 /* PFMProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFMProperty.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +57,11 @@
 			isa = PBXGroup;
 			children = (
 				F87CC5991F1B93AB00604652 /* PFM.h */,
+				F84CBC0F1F1B991200B27D6A /* PFMConstants.h */,
+				F87CC5A11F1B941900604652 /* PFMDomain.h */,
+				F87CC5A21F1B941900604652 /* PFMDomain.m */,
+				F87CC5A51F1B942B00604652 /* PFMProperty.h */,
+				F87CC5A61F1B942B00604652 /* PFMProperty.m */,
 				F87CC59A1F1B93AB00604652 /* Info.plist */,
 			);
 			path = PFM;
@@ -59,6 +74,9 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F89930261F1BA78300323299 /* PFMConstants.h in Headers */,
+				F87CC5A31F1B941900604652 /* PFMDomain.h in Headers */,
+				F87CC5A71F1B942B00604652 /* PFMProperty.h in Headers */,
 				F87CC59B1F1B93AB00604652 /* PFM.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -131,6 +149,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F87CC5A81F1B942B00604652 /* PFMProperty.m in Sources */,
+				F87CC5A41F1B941900604652 /* PFMDomain.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,6 +309,7 @@
 				F87CC5A01F1B93AB00604652 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
