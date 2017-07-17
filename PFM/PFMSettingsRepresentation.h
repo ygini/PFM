@@ -8,10 +8,18 @@
 
 #import <Foundation/Foundation.h>
 
+#import "PFMPreferenceManifest.h"
+
+@class PFMSettingsItem;
+
 @interface PFMSettingsRepresentation : NSObject
 
+@property NSMutableArray *children;
+@property PFMPreferenceManifest *manifest;
 
-@property NSMutableArray *childrens;
-@property BOOL isLeaf;
+- (void)updateAccordingToMandatorySettings;
+- (void)addChild:(PFMSettingsItem*)child;
+- (void)removeChild:(PFMSettingsItem*)child;
+- (NSArray*)availableChlidren;
 
 @end

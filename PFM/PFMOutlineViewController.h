@@ -8,13 +8,13 @@
 
 #import <Cocoa/Cocoa.h>
 
-@class PFMPreferenceManifest;
+@class PFMPreferenceManifest, PFMSettingsRepresentation, PFMSettingsItem;
 
-@interface PFMOutlineViewController : NSViewController <NSOutlineViewDataSource, NSOutlineViewDelegate>
+@interface PFMOutlineViewController : NSViewController <NSOutlineViewDataSource, NSOutlineViewDelegate, NSComboBoxCellDataSource>
 
 @property PFMPreferenceManifest *preferenceManifest;
+@property PFMSettingsRepresentation *representedSettings;
 @property IBOutlet NSOutlineView *outlineView;
-@property NSMutableDictionary *representedSettings;
 
 - (void)manifestSelectionIsDone;
 - (void)manifestSelectionCancelled;

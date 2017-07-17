@@ -57,5 +57,7 @@ typedef NS_ENUM(NSUInteger, PFMPreferencePropertyType) {
 - (instancetype)initWithInfos:(NSDictionary*)initialInformations;
 
 - (NSString*)stringForDescriptionOfLevel:(NSInteger)descriptionLevel;
+- (NSString*)descriptionForTarget:(PFMPreferencePropertyTarget)type;
+- (NSString*)descriptionForType:(PFMPreferencePropertyType)type;
 
 @end

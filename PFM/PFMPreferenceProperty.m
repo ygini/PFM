@@ -208,4 +208,8 @@
 
 }
 
+- (NSComparisonResult)compare:(PFMPreferenceProperty*)otherProperty {
+    return [self.pfm_name compare:otherProperty.pfm_name];
+}
+
 @end
