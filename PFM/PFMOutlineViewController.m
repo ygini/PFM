@@ -228,6 +228,15 @@
     }
 }
 
+- (void)outlineViewSelectionDidChange:(NSNotification *)notification {
+    PFMSettingsItem *selectedItem = [self.outlineView itemAtRow:self.outlineView.selectedRow];
+    if (selectedItem.propertyManifest) {
+        self.textViewForSelectedDescription.string = selectedItem.propertyManifest.pfm_description;
+    } else {
+        self.textViewForSelectedDescription.string = @"";
+    }
+}
+
 #pragma mark - NSComboBoxCellDataSource
 
 - (NSInteger)numberOfItemsInComboBoxCell:(NSComboBoxCell *)comboBoxCell {

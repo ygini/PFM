@@ -15,6 +15,7 @@
 @property PFMPreferenceManifest *preferenceManifest;
 @property PFMSettingsRepresentation *representedSettings;
 @property IBOutlet NSOutlineView *outlineView;
+@property IBOutlet NSTextView *textViewForSelectedDescription;
 
 - (void)manifestSelectionIsDone;
 - (void)manifestSelectionCancelled;
